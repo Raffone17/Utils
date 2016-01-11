@@ -1,0 +1,45 @@
+html,body{margin:0;padding:0;}
+.container{width:900px; margin:0 auto; padding:0;
+    border:2px solid purple;
+}
+
+
+#header{height:100px; background-color: black; margin-top:0;}
+h1{position:relative; top:20px; margin:0 auto; color:#b266ff; text-align: center;
+    font-family: Arial, Helvetica, sans-serif; font-size:50; letter-spacing: 10;
+}
+
+.nav{ position:relative; left:85px; height:50px;}
+ul.menu{list-style: none; margin:0 auto;     
+   font-family: Arial, Helvetica, sans-serif; color:white;
+}
+ul.menu li{float:left; background-color:#b266ff; width:120px;   
+    height:; border-right: 2px solid white; border-left: 5px solid #64ff33;
+}
+ul.menu li a:hover{background-color: #64ff33; } 
+ul.menu li a{background-color:#b266ff; width:120px; height:50px; display:block;
+    height:50px; color:white; text-align: center;  text-decoration: none; font-family: Arial, Helvetica, sans-serif; font-weight: bold;
+    font-size:18;
+}
+.span1{position:relative; top:10px;}
+#active{background-color: #64ff33;}
+
+.content{padding-right: 60px; padding-left:60px; margin-bottom: 40px; margin-top:50px;}
+h2{color:#64ff33;}
+p{font-size:14; clear:both; margin:12px;font-family: 'Open Sans Condensed', sans-serif;}
+
+
+#footer{height:70px; background-color: black; font-weight: bold; color:#b266ff;}
+.copy{text-align: center;font-family: 'Montserrat', sans-serif; color:#b266ff;
+    position:relative; top:20px; word-spacing: 20px;
+}
+.copy2{color:azure; float:right; font-size:12; font-weight: normal; margin-right: 15px; position:relative; top:10px;}
+
+
+
+/*.nav{margin: 0 auto; margin-left:60px; margin-right:60px; height:50px;}*/
+
+
+
+
+
