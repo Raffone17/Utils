@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Es1 javascript</title>
+		<style>
+			.container{
+				width: 60%;
+				height: 600px;
+
+				border: 0px rgb(89,89,89) solid;
+
+				padding: 20px;
+
+				background: #E3F6CE;
+
+				-moz-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				-webkit-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				margin:30px auto;
+				border-radius: 20px;
+				text-align:center;
+				}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<script>
+				var person = new Object();
+				person.name="Raffone";
+				person.surname="Bomba";
+				person.getFullName=function(){
+					return this.name+" "+this.surname;
+				}
+				console.log(person.getFullName());
+				
+				var triangle = new Object();
+				triangle.lato1=15;
+				triangle.lato2=10;
+				triangle.lato3=8;
+				triangle.getPerimetro=function(){
+					return this.lato1+this.lato2+this.lato3;
+				}
+				triangle.getArea=function(){
+					var l1=this.lato1;
+					var l2=this.lato2;
+					var l3=this.lato3;
+					var p=triangle.getPerimetro()/2;
+					return Math.sqrt(p*(p-l1)*(p-l2)*(p-l3));
+				}
+				 console.log(triangle.getArea());
+				 
+				 var a = new Object();
+				 var b = new RegExp();
+				 console.dir(a);
+				 console.dir(b);
+		
+			</script>
+						
+		</div>
+	</body>
+</html>

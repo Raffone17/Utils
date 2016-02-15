@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<link href="css/style2.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<h1>Ciao sono H1</h1>
+		<h2>Ciao sono H2</h2>
+		<h1>Ciao sono H1</h1>
+		<h2>Ciao sono H2</h2>
+		<h1>Ciao sono H1</h1>
+		<h2>Ciao sono H2</h2>
+		<button id="add"> Cambia colore</button>
+		<button id="remove"> Togli colore</button>
+		<button id="changeColor2"> Doppia funzione</button>
+		<script>
+			$('h1').html('Ciao sono CAMBIATO!');
+			$('h1').html(function(index, oldHtml){
+				return index+'->'+oldHtml.replace(" ","@")+'!!!';
+	
+			});
+			$("#add").click(function(){
+				if(!$("h1").hasClass("greenBack")){
+					$("h1").addClass("greenBack");
+					var oldHtml1 = $("h1").html();
+					$("h1").html(function(index, oldHtml){
+						return "Ciao sono Verde!";});
+					$("h2").addClass("redBack");
+					$("h2").html(function(index, oldHtml){
+						return "Ciao sono Rosso!";});
+				}else{
+					$("h1").removeClass("greenBack");
+					$("h1").html(oldHtml1);
+					$("h2").removeClass("redBack");
+					$("h2").html();
+				}
+			});
+			listItemH1.each(function(index,elem){
+					$(elem).prepend("<b>"+index+"</b>");
+				});
+		</script>
+		
+		<!--<script src="js/codice2.js"></script>-->
+	</body>
+</html>

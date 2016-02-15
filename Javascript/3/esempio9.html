@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Es1 javascript</title>
+		<style>
+			.container{
+				width: 60%;
+				height: 600px;
+
+				border: 0px rgb(89,89,89) solid;
+
+				padding: 20px;
+
+				background: #E3F6CE;
+
+				-moz-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				-webkit-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				margin:30px auto;
+				border-radius: 20px;
+				text-align:center;
+				}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<script>
+				function Animali(nome, callback){
+					this.nome = nome?nome:"Lucky";
+					this.verso = callback?callback:function(){console.log("bau");}
+					
+				}
+				var lucky = new Animali();
+				var toby = new Animali("toby");
+				var lord = new Animali("lord",function(){alert("Buongiorno Madame");});
+				console.dir(lucky);
+				console.dir(toby);
+				console.dir(lord);
+				console.log(lucky.verso()+toby.verso()+lord.verso());
+			</script>
+						
+		</div>
+	</body>
+</html>

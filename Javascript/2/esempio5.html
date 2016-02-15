@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Es1 javascript</title>
+		<style>
+			.container{
+				width: 60%;
+				height: 600px;
+
+				border: 0px rgb(89,89,89) solid;
+
+				padding: 20px;
+
+				background: #E3F6CE;
+
+				-moz-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				-webkit-box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				box-shadow:  0px 0px 47px 0px rgb(128,128,128);
+				margin:30px auto;
+				border-radius: 20px;
+				text-align:center;
+				}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<script>
+				"use strict"
+				var data = new Date();
+				var settimana=new Array("Domenica","Lunedi","Martedi","Mercoledi","Giovedi","Venerdi","Sabato");
+				var mesi=new Array("Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre");
+				alert("oggi e' il "+ data.getDate() +" "+ mesi[data.getMonth()] +", e' " + settimana[data.getDay()] +"!!! alle "+ data.getHours()+":"+data.getMinutes()+" va tutto bene");
+				var a=1;
+				var b=10;
+				
+				function sum(a,b){return a+b;}
+				function subtraction(a,b){return a-b;}
+				function moltiplication(a,b){return a*b;}
+				function division(a,b){return a/b;}
+				function power(a,b){return Math.pow(a,b);}
+				function root(a,b){return Math.pow(a,1/b);}
+				function rand(a,b){return Math.floor((Math.random()*b)+a);}
+				
+				function calcolatrice(num,oper,num2){
+					if (arguments.length != 3){
+						return "erroe numero parametri!";
+					}
+					if (isNaN(num) || isNaN(num2)){
+						return "Uno dei paramentri non e' numerico!";
+					}
+					switch(oper){
+						case '+':
+							return sum(num,num2);
+						break;
+						case '-':
+							return subtraction(num,num2);
+						break;
+						case '*':
+							return moltiplication(num,num2);
+						break;
+						case '/':
+							return division(num,num2);
+						break;
+						case '^':
+							return power(num,num2);
+						break;
+						case 'root':
+							return root(num,num2);
+						break;
+						case 'rand':
+							return rand(num,num2);
+						break;
+						default:
+						return "errore operando";
+					}
+				}
+				// http://hackademy.top-ix.org/esercizio1
+				console.dir(calcolatrice(a,'rand',b));
+				var array = new Array(1,2,3,4,5,1,2,3,4);
+				var i;
+				for (i=0; i < array.lenght ; i++){
+					
+				}
+			</script>
+						
+		</div>
+	</body>
+</html>
