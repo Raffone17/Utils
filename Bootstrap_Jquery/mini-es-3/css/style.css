@@ -1,0 +1,25 @@
+html, body{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+body{
+	background-color: #D3D1D1;
+
+}
+.box {
+	height: 100px;
+	background-color: white;
+	margin-top: 20px;
+	border-radius: 10px;
+
+}
+.counter{
+	margin-right: 10px;
+}
+.form-group{
+	margin-top: 3%;
+}
+#post{
+	margin-bottom: 10px;
+}

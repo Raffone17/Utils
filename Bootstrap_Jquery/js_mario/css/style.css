@@ -1,0 +1,27 @@
+html, body{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	background:url("../img/background.jpg") no-repeat center center;
+
+    background-size: cover;
+  }
+.container{
+	width:100%;
+	height: 100%;
+	position: relative;
+
+
+}
+.mario{
+
+	height: 60px; 
+	width: 40px;
+	position:absolute;
+	bottom:0px;
+	left:250px;
+
+}
