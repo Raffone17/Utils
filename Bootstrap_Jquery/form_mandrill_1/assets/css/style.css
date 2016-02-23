@@ -1,0 +1,23 @@
+html {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+
+	background:url("../img/background.jpg") no-repeat;
+	width:100%;
+	min-height: 100%;
+	background-size: cover;
+}
+h1{
+	color:white;
+	font-family: 'Lato', sans-serif;
+}
+h1 small{
+	color:#d9d9d9;
+}
+.margin-top-150{
+	margin-top:150px;
+}
