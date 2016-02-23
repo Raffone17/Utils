@@ -4,7 +4,11 @@ $(document).ready(function(){
 		
 		var length = $("textarea[name='message']").val().length;
 		var res= 140 - length;
-		$('h6').html(res);
+		if(length > 140){
+			$('h6').html('Il testo ha superato i 140 caratteri');
+		}else{
+			$('h6').html('Numero caratteri: '+res);
+		}
 		if(length == 0  || length > 140 ){
 			
     		 document.getElementById("button").disabled = true;
