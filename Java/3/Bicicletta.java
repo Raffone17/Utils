@@ -3,13 +3,14 @@ import java.lang.reflect.Constructor;
 
 public class Bicicletta
 {
-	String modello, nomeProrpietario;
+	String modello, nomeProprietario;
 	int marcia, velocita;
+	Persona proprietario;
 
-	public Bicicletta(String modelloP, String nome, int velInz, int marciaInz)
+	public Bicicletta(String modelloP, Persona proprietario, int velInz, int marciaInz)
 	{
+		this.proprietario = proprietario;
 		modello = modelloP;
-		nomeProrpietario = nome;
 		marcia = marciaInz;
 		velocita = velInz;
 
@@ -31,8 +32,8 @@ public class Bicicletta
 
 	public String getNomeProprietario()
 	{
-		if(nomeProrpietario != null){
-			return nomeProrpietario;
+		if(nomeProprietario != null){
+			return nomeProprietario;
 		}else{
 			return "Nessun Prorpietario";
 		}
@@ -68,13 +69,12 @@ public class Bicicletta
 	{
 		String proprietario;
 
-		if(nomeProrpietario != null){
-			proprietario = nomeProrpietario;
+		if(this.proprietario != null){
+			this.proprietario.stampaPersona();
 		}else{
 			proprietario = "Nessun Prorpietario";
 		}
 		System.out.println("Modello: "+modello);
-		System.out.println("Proprietario: "+proprietario);
 		System.out.println("Marcia: "+marcia);
 		System.out.println("Velocita: "+velocita);
 
