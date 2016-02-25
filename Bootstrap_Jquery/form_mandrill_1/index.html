@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://mandrillapp.com/api/docs/js/mandrill.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
@@ -20,11 +22,11 @@
 			</div>
 			<div class="col-sm-6">
 				<h1>Nome Mio Sito<br>
-					<small>Descrizione del sito</small></h1>
+					<small id="small">Descrizione del sito</small></h1>
 				</div>
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="form-area">  
-						<form role="form">
+						<form role="form" id="contact-form" method="post">
 							<br style="clear:both">
 							<div class="form-group">
 								<input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
@@ -42,8 +44,9 @@
 								<textarea class="form-control" type="textarea" id="message" placeholder="Message"  rows="5" required></textarea>
 								<!-- <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span> -->                   
 							</div>
+							<p class="text-danger"></p>
 
-							<button type="button" id="submit" name="submit" class="btn btn-warning">Invia</button>
+							<button type="submit" id="submit" name="submit" class="btn btn-warning">Invia</button>
 						</form>
 					</div>
 				</div>
