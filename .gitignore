@@ -1,2 +1,5 @@
 #ignore al temporany files
 *~
+/Java/Feb25/nbproject/private/
+/Java/Feb25/build/
+/Java/Feb25/dist/
