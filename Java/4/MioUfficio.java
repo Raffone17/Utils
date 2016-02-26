@@ -11,6 +11,10 @@ public class MioUfficio
 		
 		Scanner tastiera=new Scanner(System.in);
 
+		if(args.length!=0){
+			System.out.println("Cosa scrivi a fare sulla console di comando?");
+		}
+
 		System.out.println("****Iserisci numero impiegati: ***");
 		dim=tastiera.nextInt();
 		tastiera.nextLine();
@@ -29,13 +33,13 @@ public class MioUfficio
 		
 		Ufficio mioUfficio = new Ufficio(impiegato);
 		mioUfficio.stampaUfficio();
-		System.out.println("***Inserisci un nome da cercare: ***");
+		/*System.out.println("***Inserisci un nome da cercare: ***");
 		nome = tastiera.nextLine();
 		i=mioUfficio.cercaImpiegato(nome);
 		System.out.println("***Inserisci l'aumento di stipendio: ***");
 		stipendio = tastiera.nextFloat();
 		mioUfficio.incrementaStipendio(i,stipendio);
-		mioUfficio.stampaUfficio();
+		mioUfficio.stampaUfficio();*/
 
 		while(scelta != 0){
 			System.out.println("*****Cosa vuoi fare?*********");
@@ -83,6 +87,9 @@ public class MioUfficio
 					System.out.flush();
 					mioUfficio.stampaUfficio();
 
+				break;
+				case 0:
+					System.out.println("Ciao Ciao!");
 				break;
 				default:
 					System.out.println("Scelta non presente!!! ");
