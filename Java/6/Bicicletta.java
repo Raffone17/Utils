@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Bicicletta
 {
-	private String modello, nomeProprietario;
-	private int marcia, velocita;
-	private Persona proprietario;
+	protected String modello, nomeProprietario;
+	protected int marcia, velocita;
+	protected Persona proprietario;
 	final int num_telaio;
 	static int contatore=0;
-	final static int VELO_MAX = 60;
-	final static int MAX = 20000;
+	protected static int VELO_MAX = 60;
+	protected static int MAX = 20000;
 	final static int MIN = 10000;
 	Random rand = new Random();
 

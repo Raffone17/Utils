@@ -7,6 +7,8 @@ public class ProvaBici
 		String modello, nome, cognome, risposta="si";
 		int i=0, marcia, velocita=0, scelta=1, numBici=0, num, pos=0, eta;
 
+		int potenza, durata;
+
 		Bicicletta[] bici = new Bicicletta[100];
 
 		Scanner tastiera=new Scanner(System.in);
@@ -111,6 +113,13 @@ public class ProvaBici
 				 	System.out.println("Inserisci velocita:");
 				 	velocita=tastiera.nextInt();
 				 	tastiera.nextLine();
+				 	System.out.println("E' elettrica? :");
+				 	risposta = tastiera.nextLine();
+				 	if(risposta.equals("si")){
+				 		System.out.println("Inserisci durata batteria in minuti:");
+				 		durata = tastiera.nextInt();
+				 		System.out.println("Inserisci potenzain kw:");
+				 	}
 					bici[num] = new Bicicletta(modello,new Persona(nome,cognome,eta),velocita,marcia);
 					num++;
 					System.out.print("\033[H\033[2J");

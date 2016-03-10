@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import java.util.Timer;
 import java.awt.event.ActionListener;
+import java.lang.*;
 
 
 import java.awt.RenderingHints;
@@ -15,8 +16,10 @@ class Surface extends JPanel {
 
     private void doDrawing(Graphics g) {
 
-    
-
+        
+        int dimx=600;
+        int dimy=400;
+        
 
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawString("Fottiti Coglione", 50, 50);
@@ -37,24 +40,28 @@ class Surface extends JPanel {
         g2d.setBackground(new Color(0,0,0));
         g2d.setPaint(new Color(250,250,250));
         g2d.fillRect(20, 20, 600, 400);
+        g2d.setPaint(new Color(150, 150, 150));
+        g2d.fillRect(20, 20, dimx, dimy);
+
        
+        while(dimx>50){
+           /* g2d.setPaint(new Color(250,250,250));
+            g2d.fillRect(20, 20, 600, 400);
+            dimx-=10;
+            dimy-=10;
+            g2d.setPaint(new Color(150, 150, 150));
+            g2d.fillRect(20, 20, dimx, dimy);
+            /*try {
+                Thread.sleep(100);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                System.out.println("Errorroror");
+                Thread.currentThread().interrupt();
 
-        int delay = 100; //milliseconds
-		  ActionListener taskPerformer = new ActionListener() {
-		      public void actionPerformed(ActionEvent evt) {
-		      	 Graphics2D g2d = (Graphics2D) g;
-		      	  int dimx=600;
-        		int dimy=400;
-		      	  g2d.setPaint(new Color(250,250,250));
-		          g2d.fillRect(20, 20, 600, 400);
-		          dimx-=10;
-		          dimy-=10;
-		          g2d.setPaint(new Color(150, 150, 150));
-		          g2d.fillRect(20, 20, dimx, dimy);
+            }*/
 
-		      }
-		  };
- 		 new Timer(delay, taskPerformer).start();
+        }
+
+        
   		
         
 
