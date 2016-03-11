@@ -29,6 +29,11 @@ public class BiciElettrica extends Bicicletta
 		this.potenza = potenza;
 	}
 
+	public String toString()
+	{
+		return super.toString()+"\nPotenza: "+potenza+"\nDurata Batteria: "+durataBatteria;
+	}
+
 	// overide stampastato()
 	public void stampaStato()
 	{

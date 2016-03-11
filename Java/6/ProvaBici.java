@@ -10,10 +10,11 @@ public class ProvaBici
 		int potenza, durata;
 
 		Bicicletta[] bici = new Bicicletta[100];
+		CollezioneBici collezione = new CollezioneBici(bici);
 
 		Scanner tastiera=new Scanner(System.in);
 
-		System.out.println("Inserisci un elenco di bici");
+		/*System.out.println("Inserisci un elenco di bici");
 		while(risposta.equals("si")){
 
 		 	
@@ -38,7 +39,7 @@ public class ProvaBici
 			System.out.println("Vuoi aggiungere un altra bici? ");
 			risposta = tastiera.nextLine();
 
-		}
+		}*/
 		num=i;
 
 		for(i=0; i<num; i++){
@@ -54,6 +55,7 @@ public class ProvaBici
 			System.out.println("4) Aggiungi una bici");
 			System.out.println("5) Stampa la bici più veloce");
 			System.out.println("6) Stampa numero bici");
+			System.out.println("7) Bici è elettrica?");
 			System.out.println("----------------------------");
 			System.out.println("0) Esci");
 			scelta=tastiera.nextInt();
@@ -119,9 +121,18 @@ public class ProvaBici
 				 		System.out.println("Inserisci durata batteria in minuti:");
 				 		durata = tastiera.nextInt();
 				 		System.out.println("Inserisci potenzain kw:");
-				 	}
-					bici[num] = new Bicicletta(modello,new Persona(nome,cognome,eta),velocita,marcia);
-					num++;
+				 		potenza = tastiera.nextInt();
+				 		tastiera.nextLine();
+				 		bici[num] = new BiciElettrica(modello, new Persona(nome,cognome,eta),velocita,marcia,durata,potenza);
+				 		collezione = new CollezioneBici(bici);
+				 		num++;
+				 	}else{
+
+						bici[num] = new Bicicletta(modello,new Persona(nome,cognome,eta),velocita,marcia);
+						collezione = new CollezioneBici(bici);
+						num++;
+
+					}
 					System.out.print("\033[H\033[2J");
 					System.out.flush();
 				break;
@@ -143,8 +154,17 @@ public class ProvaBici
 				break;
 				case 6:
 					System.out.println("******Numero bici:******");
-					Bicicletta.getContatore();
+					System.out.println("--  "+Bicicletta.getContatore()+" --");
 					System.out.println("********************************");
+				break;
+				case 7:
+					System.out.println("Inserisci il nome del proprietario");
+					nome = tastiera.nextLine();
+					if(collezione.biciIsElettrica(nome)){
+						System.out.println("La bici è elettrica!");
+					}else{
+						System.out.println("Non è elettrica!");
+					}
 				break;
 				case 0:
 					System.out.println("Ciao Ciao");

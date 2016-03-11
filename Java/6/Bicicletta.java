@@ -47,8 +47,8 @@ public class Bicicletta
 
 	public String getNomeProprietario()
 	{
-		if(nomeProprietario != null){
-			return nomeProprietario;
+		if(this.proprietario  != null){
+			return this.proprietario.getName();
 		}else{
 			return "Nessun Prorpietario";
 		}
