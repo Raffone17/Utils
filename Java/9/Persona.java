@@ -35,6 +35,7 @@ public class Persona
 		return this.annoNascita;
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Nome: "+this.nome+" Cognome: "+this.cognome+" Anno nascita: "+this.annoNascita;

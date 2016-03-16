@@ -16,6 +16,8 @@ public class SocioProf extends SocioPremium
 	{
 		this.indirizzoPostale = indirizzo;
 	}
+	
+	@Override
 	public String toString()
 	{
 		return super.toString()+"\nIndirizzo postale: "+this.indirizzoPostale;

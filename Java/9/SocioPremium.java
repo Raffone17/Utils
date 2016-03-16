@@ -9,11 +9,31 @@ public class SocioPremium extends SocioPlus
 		this.puntiMensa = 0;
 	}
 
+	public int getPuntiMensa()
+	{
+		return this.puntiMensa;
+	}
+	public void setPuntiMensa(int punti)
+	{
+		this.puntiMensa = punti;
+	}
+	public float getContoDistributore()
+	{
+		return this.contoDistributore;
+	}
+	public void setContoDistributore(float punti)
+	{
+		this.contoDistributore = punti;
+	}
+
+	@Override
 	public void addOreLezione(int numero)
 	{
-		super.numeroCrediti += (10*numero);
+		super.addOreLezione(numero);
 		this.puntiMensa += numero;
+		this.contoDistributore += (0.25 * numero);
 	}
+	@Override
 	public String toString()
 	{
 		return super.toString()+"\nConto per distributore: "+this.contoDistributore+

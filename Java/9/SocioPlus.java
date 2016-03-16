@@ -9,10 +9,12 @@ public class SocioPlus extends SocioEngim
 		this.indirizzoEmail = nome.toLowerCase().concat("@engim.it");
 	}
 
+	@Override
 	public void addOreLezione(int numero)
 	{
 		super.numeroCrediti += (10*numero);
 	}
+	@Override
 	public String toString()
 	{
 		return super.toString()+"\nIndirizzo email: "+this.indirizzoEmail;
