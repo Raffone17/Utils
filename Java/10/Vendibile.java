@@ -1,5 +1,5 @@
-public interface Vendibile
+public interface Vendibile extends Comparable
 {
 
-	float getPrezzo();
+	public float getPrezzo();
 }

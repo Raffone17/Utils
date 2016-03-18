@@ -1,11 +1,20 @@
 public class EngimMarket
 {
-	private Vendibile[] lista;
-	static float incasso = 0;
+	private final static int MAX=10;
 
-	public EngimMarket(Vendibile[] lista)
+	private Vendibile[] lista;
+	private Vendibile[] tmp;
+	private float incasso;
+	private int pos;
+	private int biciVendute;
+
+	public EngimMarket()
 	{
-		this.lista = lista;
+		this.incasso=0;
+		this.pos=0;
+		this.biciVendute=0;
+		lista = new Vendibile[MAX];
+		
 	}
 
 	public Vendibile[] getLista()
@@ -19,11 +28,62 @@ public class EngimMarket
 
 	public void addVenduto(Vendibile obj)
 	{
-		this.incasso+=obj.getPrezzo();
+		int i;
 
+		if(obj instanceof Scontabile ){
+			this.incasso+=((Scontabile)obj).getPrezzoScontato();
+		}else{
+			this.incasso+=obj.getPrezzo();
+		}
+
+		if(obj instanceof Bicicletta){
+			biciVendute++;
+		}
+
+		if(pos<lista.length){
+			this.lista[pos] = obj;
+			pos++;
+		}else{
+			tmp = new Vendibile[lista.length*2];
+			for( i=0; i<lista.length; i++){
+				tmp[i]=lista[i];
+			}
+			
+			lista = tmp;
+
+			lista[pos]=obj;
+			pos++;
+
+		}
+		
+		
 	}
+
 	public float getIncasso()
 	{
 		return this.incasso;
+	}
+	public int biciVendute()
+	{
+		return biciVendute;
+	}
+	public void stampaVenduti()
+	{
+		System.out.println("****** Lista Venduti EngimMarket: *****");
+		for(int i=0; i<pos; i++){
+		
+				System.out.println(this.lista[i]);
+				System.out.println("\n-----------");
+		}
+		
+
+	}
+
+	@Override
+	public String toString()
+	{
+
+		return "\nNumero oggetti venduti: "+pos+"\nIncasso totale: "+incasso+"\nLunghezza A: "+this.lista.length;
+
 	}
 }

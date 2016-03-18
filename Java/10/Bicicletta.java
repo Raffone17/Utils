@@ -117,9 +117,33 @@ public class Bicicletta implements Vendibile
 	}
 
 	@Override
+	public String toString()
+	{
+		
+		return "\nProrpietario: "+this.proprietario+"\nModello: "+modello+"\nNumero telaio: "+num_telaio+
+		"\nMarcia: "+marcia+"\nVelocita: "+velocita;
+
+	}
+
+
+	@Override
 	public float getPrezzo()
 	{
 		return this.prezzo;
+	}
+
+
+	@Override
+	public int compareTo(Object obj)
+	{
+		if(this.prezzo < ((Bicicletta)obj).getPrezzo()){
+			return -1;
+		}else if(this.prezzo > ((Bicicletta)obj).getPrezzo()){
+			return 1;
+		}
+
+		return 0;
+
 	}
 
 	/*@Override

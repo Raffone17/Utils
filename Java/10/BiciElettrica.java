@@ -1,4 +1,4 @@
-public class BiciElettrica extends Bicicletta
+public class BiciElettrica extends Bicicletta implements Scontabile
 {
 	protected int durataBatteria;
 	protected int potenza;
@@ -35,16 +35,23 @@ public class BiciElettrica extends Bicicletta
 		this.potenza = potenza;
 	}
 
+	@Override
 	public String toString()
 	{
 		return super.toString()+"\nPotenza: "+potenza+"\nDurata Batteria: "+durataBatteria;
 	}
 
 	// overide stampastato()
+	@Override
 	public void stampaStato()
 	{
 		super.stampaStato();
 		System.out.println("Durata batteria: "+this.durataBatteria);
 		System.out.println("Potenza: "+this.potenza+" KW");
+	}
+	@Override
+	public float getPrezzoScontato()
+	{
+		return super.prezzo*(float)0.75;
 	}
 }
