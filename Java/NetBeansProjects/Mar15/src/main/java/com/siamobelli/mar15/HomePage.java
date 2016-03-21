@@ -1,5 +1,7 @@
 package com.siamobelli.mar15;
 
+import com.siamobelli.mar15.models.Persona;
+import javax.persistence.EntityManager;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
@@ -29,6 +31,17 @@ public class HomePage extends WebPage {
                         "chi ama la (|) metta una riga"));
                 
                 add(tab);
+                
+                EntityManager conn = PM.getEM();
+                
+                try{
+                   
+                    Persona p = conn.find(Persona.class, 1);
+                    
+                }finally{
+                    
+                    conn.close();
+                }
 
     }
 }

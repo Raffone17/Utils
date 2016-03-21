@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/Mar15"/>
+<Context antiJARLocking="true" path="/mar15">
+    <Resource auth="Container" 
+        driverClassName="com.mysql.jdbc.Driver" 
+        maxActive="8" 
+        maxIdle="4" 
+        name="jdbc/conDatabase" 
+        password="pwd" 
+        type="javax.sql.DataSource" 
+        url="jdbc:mysql://localhost:3306/mar21?zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true" 
+        username="raffone"/>
+</Context>
