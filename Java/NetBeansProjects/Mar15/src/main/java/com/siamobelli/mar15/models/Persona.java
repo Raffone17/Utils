@@ -17,6 +17,7 @@ package com.siamobelli.mar15.models;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,6 +29,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -62,6 +64,12 @@ public class Persona implements Serializable {
     @Lob
     @Column(name = "note")
     private String note;
+    @Column(name = "data_nascita")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataNascita;
+    @Column(name = "data_morte")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataMorte;
     @OneToMany(mappedBy = "idPersona")
     private Collection<Carrello> carrelloCollection;
 
@@ -111,6 +119,23 @@ public class Persona implements Serializable {
     public void setNote(String note) {
         this.note = note;
     }
+
+    public Date getDataNascita() {
+        return dataNascita;
+    }
+
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public Date getDataMorte() {
+        return dataMorte;
+    }
+
+    public void setDataMorte(Date dataMorte) {
+        this.dataMorte = dataMorte;
+    }
+    
 
     @XmlTransient
     public Collection<Carrello> getCarrelloCollection() {
