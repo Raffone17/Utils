@@ -136,9 +136,9 @@ public class Bicicletta implements Vendibile
 	@Override
 	public int compareTo(Object obj)
 	{
-		if(this.prezzo < ((Bicicletta)obj).getPrezzo()){
+		if(this.prezzo < ((Vendibile)obj).getPrezzo()){
 			return -1;
-		}else if(this.prezzo > ((Bicicletta)obj).getPrezzo()){
+		}else if(this.prezzo > ((Vendibile)obj).getPrezzo()){
 			return 1;
 		}
 

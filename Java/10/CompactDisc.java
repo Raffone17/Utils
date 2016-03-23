@@ -107,9 +107,11 @@ public class CompactDisc implements Vendibile
 	@Override
 	public int compareTo(Object obj)
 	{
-		if(this.prezzo < ((CompactDisc)obj).getPrezzo()){
+		Vendibile disc = (Vendibile)obj;
+
+		if(this.prezzo < disc.getPrezzo()){
 			return -1;
-		}else if(this.prezzo > ((CompactDisc)obj).getPrezzo()){
+		}else if(this.prezzo > disc.getPrezzo()){
 			return 1;
 		}
 

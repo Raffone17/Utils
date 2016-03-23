@@ -35,6 +35,8 @@ public class ProvaVendita
 		}
 		System.out.println(mercato);
 		//mercato.stampaVenduti();
+		System.out.println("\n-----Venduto con prezzo più alto: ------");
+		mercato.prezzoPiuAlto();
 	}
 
 

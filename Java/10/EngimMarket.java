@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.*;
+
 public class EngimMarket
 {
 	private final static int MAX=10;
@@ -83,7 +86,22 @@ public class EngimMarket
 	public String toString()
 	{
 
-		return "\nNumero oggetti venduti: "+pos+"\nIncasso totale: "+incasso+"\nLunghezza A: "+this.lista.length;
+		return "\nNumero oggetti venduti: "+pos+"\nIncasso totale: "+incasso;
+
+	}
+
+	public void prezzoPiuAlto()
+	{
+		tmp = new Vendibile[pos];
+		for(int i=0; i<pos; i++){
+
+				tmp[i]=lista[i];
+			}
+
+		Arrays.sort(tmp, Collections.reverseOrder());
+
+
+		System.out.println(tmp[0]+"\nAl prezzo di: "+tmp[0].getPrezzo());
 
 	}
 }
