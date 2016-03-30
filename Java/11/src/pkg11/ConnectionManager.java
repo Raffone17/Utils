@@ -135,15 +135,22 @@ public class ConnectionManager {
 		Statement st = null;
 		Connection con = null;
                 Provincia[] lista = null;
+                int rows = 0 ;
                 
 
 		try {
                     
-                        lista = new Provincia[ConnectionManager.getNumeroProvince(idRegione)];
+                        
 			con = ConnectionManager.getConnection();
 			st = con.createStatement();
-			String query="select * from provincia where regione="+idRegione;
+			String query="select id,nome from provincia where regione="+idRegione;
 			rs=st.executeQuery(query);
+                        if (rs.last()) {
+                            rows = rs.getRow();
+                            rs.beforeFirst();
+                        }
+                        lista = new Provincia[rows];
+                    
                         for(int i = 0; i<lista.length; i++){
                             rs.next();
                             lista[i] = new Provincia(rs.getInt("id"),rs.getString("nome"));
