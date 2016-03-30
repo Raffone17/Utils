@@ -5,10 +5,6 @@
  */
 package pkg11;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -18,20 +14,20 @@ public class Regione {
     
     private int id;
     private String nome;
-    private String[] provincie;
+    private Provincia[] listaProvincie;
     
      public Regione(String nome) {
          
     	this.id = ConnectionManager.getIdRegione(nome);
         this.nome = nome;
-        this.provincie = ConnectionManager.getNomeProvincie(this.id);
+        this.listaProvincie = ConnectionManager.getNomeProvincie(this.id);
     }
      
      public Regione(int id) {
          
         this.id = id;
     	this.nome = ConnectionManager.getNomeRegione(id);
-        this.provincie = ConnectionManager.getNomeProvincie(this.id);
+        this.listaProvincie = ConnectionManager.getNomeProvincie(this.id);
     }
 
 
@@ -52,18 +48,20 @@ public class Regione {
         this.nome = nome;
     }
 
-    public String[] getProvincie() {
-        return provincie;
+    public Provincia[] getListaProvincie() {
+        return listaProvincie;
     }
 
-    public void setProvincie(String[] provincie) {
-        this.provincie = provincie;
+    public void setListaProvincie(Provincia[] listaProvincie) {
+        this.listaProvincie = listaProvincie;
     }
+
+ 
 
     @Override
     public String toString() {
         return "Regione n° "+this.id+" -nome: "+this.nome+
-                " -numero provincie: "+provincie.length;
+                " -numero provincie: "+listaProvincie.length;
     }
 
    

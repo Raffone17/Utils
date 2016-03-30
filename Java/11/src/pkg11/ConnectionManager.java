@@ -46,7 +46,7 @@ public class ConnectionManager {
 
 			connection = DriverManager.getConnection("jdbc:mysql://a22docente/soft2015","softuser","_s0ft*");
 		}
-		System.out.println(" - Connected to database - ");
+		//System.out.println(" - Connected to database - ");
 		return connection;
 	}
 
@@ -129,24 +129,24 @@ public class ConnectionManager {
         
     }
     
-    public static String[] getNomeProvincie(int idRegione)
+    public static Provincia[] getNomeProvincie(int idRegione)
     {
          ResultSet rs = null;
 		Statement st = null;
 		Connection con = null;
-                String nomi[] = null;
+                Provincia[] lista = null;
                 
 
 		try {
                     
-                        nomi = new String[ConnectionManager.getNumeroProvince(idRegione)];
+                        lista = new Provincia[ConnectionManager.getNumeroProvince(idRegione)];
 			con = ConnectionManager.getConnection();
 			st = con.createStatement();
-			String query="select nome from provincia where regione="+idRegione;
+			String query="select * from provincia where regione="+idRegione;
 			rs=st.executeQuery(query);
-                        for(int i = 0; i<nomi.length; i++){
+                        for(int i = 0; i<lista.length; i++){
                             rs.next();
-                            nomi[i]=rs.getString("nome");
+                            lista[i] = new Provincia(rs.getInt("id"),rs.getString("nome"));
                         }
 			
 			
@@ -156,11 +156,11 @@ public class ConnectionManager {
          	con.close();
 
 			} catch (SQLException ex) {
-			System.out.println("Errore in getIdRegione: " + ex.getMessage());
+			System.out.println("Errore in getNomeProvincie: " + ex.getMessage());
 			ex.printStackTrace();
         }
                 
-        return nomi;
+        return lista;
     }
 
     public static void main(String[]args)
