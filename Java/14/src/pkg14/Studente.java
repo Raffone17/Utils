@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author svilupposw
  */
-public class Studente {
+public class Studente implements Comparable {
     static int count = 1000;
     
     private final int matricola;
@@ -57,6 +57,19 @@ public class Studente {
     @Override
     public String toString() {
         return "Studente con: " + "matricola=" + matricola + ", nome=" + nome + ", cognome=" + cognome + ", eta=" + eta + "\n";
+    }
+
+    @Override
+    public int compareTo(Object t) {
+       Studente obj = (Studente)t;
+       
+       if(this.eta < obj.getEta()){
+           return -1;
+       }else if(this.eta > obj.getEta()){
+           return 1;
+       }
+       
+       return 0;
     }
     
 }

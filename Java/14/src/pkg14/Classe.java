@@ -6,6 +6,8 @@
 package pkg14;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public class Classe {
     private String nome;
     private List<Studente> listaStudenti = new ArrayList <Studente>();
+    
 
     public Classe(String nome) {
         this.nome = nome;
@@ -75,9 +78,10 @@ public class Classe {
         while(iterator.hasNext()){
             attuale = iterator.next();
            if(vecchio != null){
-            if(attuale.getEta() > vecchio.getEta()){
-                 vecchio = attuale;
-            }
+                if(attuale.getEta() > vecchio.getEta()){
+                     vecchio = attuale;
+                }
+                
            }else{
                vecchio = attuale;
            }
@@ -98,7 +102,17 @@ public class Classe {
         
         }
         return false;
-    } 
+    }
+    
+    public List<Studente> getListaOrdinataStudenti(){
+        
+           List<Studente> lista;
+           
+           lista = new ArrayList(this.listaStudenti);
+           Collections.sort(lista);
+           
+           return lista;
+    }
 
     @Override
     public String toString() {
