@@ -42,12 +42,19 @@ public class Rubrica {
 
     public void setListaContatti(List<Contatto> listaContatti) {
         this.listaContatti = listaContatti;
-        Collections.sort(this.listaContatti);
+        //Collections.sort(this.listaContatti);
     }
 
     public void addContatto (Contatto tizio){
          this.listaContatti.add(tizio);
-         Collections.sort(this.listaContatti);
+         //Collections.sort(this.listaContatti);
+         boolean add = false;
+         for(int i=0; i<this.listaContatti.size() && false == add; i++){
+             if(tizio.compareTo(this.listaContatti.get(i)) <= 0){
+                this.listaContatti.add(i,tizio);
+                add = true;
+             }
+         }
          this.hmap.put( tizio.getCognome(),tizio);
          
     }
