@@ -1,0 +1,7 @@
+SELECT id, name, ROUND (
+6371 * 2 * ASIN(SQRT(POWER(SIN((45.07 - abs(lat)) * pi()/180 / 2),2)
+ + COS(45.07 * pi()/180 ) * COS(abs(lat) *pi()/180) * 
+POWER(SIN((7.67 - lng) * pi()/180 / 2), 2) ))*1000 , 2 ) as distanza
+FROM locals ORDER BY distanza ASC;
+
+Calcolo distanza con lat e longt in metri mysql
