@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.siamobelli.mar15;
+package com.siamobelli.mar15.models;
 
 /**
  *
  * @author svilupposw
  */
-import it.virtualbit.beans.Cliente;
+import com.siamobelli.mar15.PM;
+import com.siamobelli.mar15.models.Cliente;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -28,6 +29,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
+
 import org.apache.wicket.model.IModel;
 
 public class ClienteDataProvider extends SortableDataProvider<Cliente, String>
@@ -74,5 +76,6 @@ public class ClienteDataProvider extends SortableDataProvider<Cliente, String>
   {
     return new ClienteModel(object.getId());
   }
+
 
 }

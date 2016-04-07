@@ -13,11 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.siamobelli.mar15.models;
+package models;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,34 +24,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author svilupposw
  */
 @Entity
-@Table(name = "lapide")
+@Table(name = "cliente")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Lapide.findAll", query = "SELECT l FROM Lapide l"),
-    @NamedQuery(name = "Lapide.findById", query = "SELECT l FROM Lapide l WHERE l.id = :id"),
-    @NamedQuery(name = "Lapide.findByNome", query = "SELECT l FROM Lapide l WHERE l.nome = :nome"),
-    @NamedQuery(name = "Lapide.findByCognome", query = "SELECT l FROM Lapide l WHERE l.cognome = :cognome"),
-    @NamedQuery(name = "Lapide.findByDataNascita", query = "SELECT l FROM Lapide l WHERE l.dataNascita = :dataNascita"),
-    @NamedQuery(name = "Lapide.findByDataMorte", query = "SELECT l FROM Lapide l WHERE l.dataMorte = :dataMorte"),
-    @NamedQuery(name = "Lapide.findByEpitaffio", query = "SELECT l FROM Lapide l WHERE l.epitaffio = :epitaffio")})
-public class Lapide implements Serializable {
-
-    @OneToMany(mappedBy = "idLapide")
-    private Collection<Funerale> funeraleCollection;
+    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
+    @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id"),
+    @NamedQuery(name = "Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome"),
+    @NamedQuery(name = "Cliente.findByCognome", query = "SELECT c FROM Cliente c WHERE c.cognome = :cognome")})
+public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -71,30 +59,18 @@ public class Lapide implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "cognome")
     private String cognome;
-    @Column(name = "data_nascita")
-    @Temporal(TemporalType.DATE)
-    private Date dataNascita;
-    @Column(name = "data_morte")
-    @Temporal(TemporalType.DATE)
-    private Date dataMorte;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "epitaffio")
-    private String epitaffio;
 
-    public Lapide() {
+    public Cliente() {
     }
 
-    public Lapide(Integer id) {
+    public Cliente(Integer id) {
         this.id = id;
     }
 
-    public Lapide(Integer id, String nome, String cognome, String epitaffio) {
+    public Cliente(Integer id, String nome, String cognome) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
-        this.epitaffio = epitaffio;
     }
 
     public Integer getId() {
@@ -121,30 +97,6 @@ public class Lapide implements Serializable {
         this.cognome = cognome;
     }
 
-    public Date getDataNascita() {
-        return dataNascita;
-    }
-
-    public void setDataNascita(Date dataNascita) {
-        this.dataNascita = dataNascita;
-    }
-
-    public Date getDataMorte() {
-        return dataMorte;
-    }
-
-    public void setDataMorte(Date dataMorte) {
-        this.dataMorte = dataMorte;
-    }
-
-    public String getEpitaffio() {
-        return epitaffio;
-    }
-
-    public void setEpitaffio(String epitaffio) {
-        this.epitaffio = epitaffio;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -155,10 +107,10 @@ public class Lapide implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Lapide)) {
+        if (!(object instanceof Cliente)) {
             return false;
         }
-        Lapide other = (Lapide) object;
+        Cliente other = (Cliente) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -167,16 +119,7 @@ public class Lapide implements Serializable {
 
     @Override
     public String toString() {
-        return "com.siamobelli.mar15.models.Lapide[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Funerale> getFuneraleCollection() {
-        return funeraleCollection;
-    }
-
-    public void setFuneraleCollection(Collection<Funerale> funeraleCollection) {
-        this.funeraleCollection = funeraleCollection;
+        return "models.Cliente[ id=" + id + " ]";
     }
     
 }

@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.siamobelli.mar15.models;
+package models;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -26,14 +25,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -51,9 +48,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Lapide.findByDataMorte", query = "SELECT l FROM Lapide l WHERE l.dataMorte = :dataMorte"),
     @NamedQuery(name = "Lapide.findByEpitaffio", query = "SELECT l FROM Lapide l WHERE l.epitaffio = :epitaffio")})
 public class Lapide implements Serializable {
-
-    @OneToMany(mappedBy = "idLapide")
-    private Collection<Funerale> funeraleCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -167,16 +161,7 @@ public class Lapide implements Serializable {
 
     @Override
     public String toString() {
-        return "com.siamobelli.mar15.models.Lapide[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Funerale> getFuneraleCollection() {
-        return funeraleCollection;
-    }
-
-    public void setFuneraleCollection(Collection<Funerale> funeraleCollection) {
-        this.funeraleCollection = funeraleCollection;
+        return "models.Lapide[ id=" + id + " ]";
     }
     
 }

@@ -16,38 +16,34 @@
 package com.siamobelli.mar15.models;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author svilupposw
  */
 @Entity
-@Table(name = "cliente")
+@Table(name = "funerale")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id"),
-    @NamedQuery(name = "Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome"),
-    @NamedQuery(name = "Cliente.findByCognome", query = "SELECT c FROM Cliente c WHERE c.cognome = :cognome")})
-public class Cliente implements Serializable {
-
-    @OneToMany(mappedBy = "idCliente")
-    private Collection<Funerale> funeraleCollection;
+    @NamedQuery(name = "Funerale.findAll", query = "SELECT f FROM Funerale f"),
+    @NamedQuery(name = "Funerale.findById", query = "SELECT f FROM Funerale f WHERE f.id = :id"),
+    @NamedQuery(name = "Funerale.findByDataFunerale", query = "SELECT f FROM Funerale f WHERE f.dataFunerale = :dataFunerale")})
+public class Funerale implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -55,28 +51,21 @@ public class Cliente implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "nome")
-    private String nome;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 255)
-    @Column(name = "cognome")
-    private String cognome;
+    @Column(name = "data_funerale")
+    @Temporal(TemporalType.DATE)
+    private Date dataFunerale;
+    @JoinColumn(name = "id_lapide", referencedColumnName = "id")
+    @ManyToOne
+    private Lapide idLapide;
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
+    @ManyToOne
+    private Cliente idCliente;
 
-    public Cliente() {
+    public Funerale() {
     }
 
-    public Cliente(Integer id) {
+    public Funerale(Integer id) {
         this.id = id;
-    }
-
-    public Cliente(Integer id, String nome, String cognome) {
-        this.id = id;
-        this.nome = nome;
-        this.cognome = cognome;
     }
 
     public Integer getId() {
@@ -87,20 +76,28 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Date getDataFunerale() {
+        return dataFunerale;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDataFunerale(Date dataFunerale) {
+        this.dataFunerale = dataFunerale;
     }
 
-    public String getCognome() {
-        return cognome;
+    public Lapide getIdLapide() {
+        return idLapide;
     }
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
+    public void setIdLapide(Lapide idLapide) {
+        this.idLapide = idLapide;
+    }
+
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
     }
 
     @Override
@@ -113,10 +110,10 @@ public class Cliente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cliente)) {
+        if (!(object instanceof Funerale)) {
             return false;
         }
-        Cliente other = (Cliente) object;
+        Funerale other = (Funerale) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -125,16 +122,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "com.siamobelli.mar15.models.Cliente[ id=" + id + " ]";
-    }
-
-    @XmlTransient
-    public Collection<Funerale> getFuneraleCollection() {
-        return funeraleCollection;
-    }
-
-    public void setFuneraleCollection(Collection<Funerale> funeraleCollection) {
-        this.funeraleCollection = funeraleCollection;
+        return "com.siamobelli.mar15.models.Funerale[ id=" + id + " ]";
     }
     
 }

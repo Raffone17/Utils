@@ -5,7 +5,8 @@
     <non-jta-data-source>java:comp/env/jdbc/conDatabase</non-jta-data-source>
     <class>com.siamobelli.mar15.models.Lapide</class>
     <class>com.siamobelli.mar15.models.Cliente</class>
-    <class>com.siamobelli.mar15.models.Funerale</class>
+    <class>models.Lapide</class>
+    <class>models.Cliente</class>
     <properties>
       <property name="hibernate.archive.autodetection" value="class, hbm"/>
       <property name="hibernate.show_sql" value="true"/>

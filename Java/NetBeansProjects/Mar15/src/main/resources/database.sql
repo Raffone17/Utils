@@ -26,3 +26,15 @@ CREATE TABLE `lapide` (
 
 INSERT INTO `lapide` (`nome`,`cognome`,`data_nascita`,`data_morte`,`epitaffio`)
     VALUES ('Ariful','Md','1992-07-29','2088-06-13','E stato un personaggio molto interessante');
+
+CREATE TABLE `funerale` (
+    `id` INTEGER AUTO_INCREMENT PRIMARY KEY,
+    `id_cliente` INTEGER,
+    `id_lapide` INTEGER,
+    `data_funerale` DATE,
+    CONSTRAINT FOREIGN KEY (id_cliente) REFERENCES cliente(id),
+    CONSTRAINT FOREIGN KEY (id_lapide) REFERENCES lapide(id) 
+) ENGINE=InnoDB;
+
+INSERT INTO `funerale` (`id_cliente`,`id_lapide`,`data_funerale`)
+VALUES (1,1,'2088-06-22');

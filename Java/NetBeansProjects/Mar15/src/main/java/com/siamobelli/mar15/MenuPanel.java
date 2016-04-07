@@ -40,6 +40,10 @@ public class MenuPanel extends Panel {
                 new BookmarkablePageLink("cosafacciamo", CosaFacciamo.class);
         add(cosafacciamo);
         
+        BookmarkablePageLink elencoclienti =
+                new BookmarkablePageLink("elencoclienti", ElencoClienti.class);
+        add(elencoclienti);
+        
     }
     
 }
