@@ -46,21 +46,35 @@ public class Rubrica {
     }
 
     public void addContatto (Contatto tizio){
-         this.listaContatti.add(tizio);
+         //this.listaContatti.add(tizio);
          //Collections.sort(this.listaContatti);
          boolean add = false;
-         for(int i=0; i<this.listaContatti.size() && false == add; i++){
+         
+         if(this.listaContatti.isEmpty()){
+             this.listaContatti.add(tizio);
+             add = true;
+         }
+         for(int i=0; i<this.listaContatti.size() && add == false; i++){
              if(tizio.compareTo(this.listaContatti.get(i)) <= 0){
                 this.listaContatti.add(i,tizio);
                 add = true;
              }
          }
+         if(add == false){
+             this.listaContatti.add(tizio);
+         }
+         
          this.hmap.put( tizio.getCognome(),tizio);
          
     }
     public Contatto getContatto (int pos){
-   
-        return this.listaContatti.get(pos);
+        Contatto toRet = null;
+        
+        if(pos <= this.listaContatti.size() && pos >= 0){
+            toRet = this.listaContatti.get(pos);
+        }
+        
+        return toRet;
     }
     public boolean removeContatto(int pos){
         

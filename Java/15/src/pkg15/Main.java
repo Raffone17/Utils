@@ -25,6 +25,8 @@ public class Main {
        miaRubrica.addContatto(tizio);
        tizio = new Contatto("Mario","Rossi","mario@email.com","3897456321");
        miaRubrica.addContatto(tizio);
+        tizio = new Contatto("Ciccio","Artrosi","ciccio@email.com","3897423659");
+       miaRubrica.addContatto(tizio);
         
        System.out.println(miaRubrica);
        System.out.println(miaRubrica.getContatto(2));
