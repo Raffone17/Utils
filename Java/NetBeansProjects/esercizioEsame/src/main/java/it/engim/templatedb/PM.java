@@ -46,7 +46,7 @@ public class PM
 
   private HashMap<String, EntityManagerFactory> emfs;
   
-  private static final String mainUnitName = "giuseppe";
+  private static final String mainUnitName = "root";
     
   public static interface EMapMBean extends Map<String, List<EMWrapper>>
   {
