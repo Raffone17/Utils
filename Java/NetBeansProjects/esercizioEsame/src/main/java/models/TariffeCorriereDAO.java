@@ -73,5 +73,20 @@ public class TariffeCorriereDAO
           if (et.isActive()) et.rollback();
           em.close();
       }
-  } 
+  }
+  public static TariffeCorriere calcolaTariffaMigliore(Ordine o)
+  {
+    EntityManager em = PM.db();
+    try{
+        Query q = em.createNamedQuery("TariffeCorriere.findBest");
+        Double peso = OrdineDAO.calcolaPeso(o, em);
+        q.setParameter("peso", peso);
+        q.setMaxResults(1);
+        List<TariffeCorriere> result = q.getResultList();
+        return result.get(0);
+    }
+    finally{
+        em.close();
+    }
+   }
 } 

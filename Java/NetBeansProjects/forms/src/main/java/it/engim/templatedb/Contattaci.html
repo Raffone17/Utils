@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+Copyright 2016 svilupposw.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    </head>
+    <body>
+         <div>
+                <wicket:container wicket:id="menu"/>
+        </div>
+        <div class="container" >
+            <form role="form" wicket:id="formcontatti">
+                <div class="form-group">
+                    <input wicket:id="email" class="form-control" type="text" name="email" placeholder="io@provider.com" />
+                </div>
+                <div class="form-group">
+                    <textarea wicket:id="richiesta" class="form-control" name="richiesta" placeholder="Scrivi il cazzo che vuoi!"></textarea>
+                </div>
+                <div class="form-group">
+                 <button class="btn btn-primary" type="submit" value="Invia">Invia</button>
+                </div>
+            </form>
+         </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </body>
+</html>

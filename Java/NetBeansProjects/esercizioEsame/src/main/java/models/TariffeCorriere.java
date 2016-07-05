@@ -42,7 +42,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TariffeCorriere.findByNomeCorriere", query = "SELECT t FROM TariffeCorriere t WHERE t.nomeCorriere = :nomeCorriere"),
     @NamedQuery(name = "TariffeCorriere.findByNomeTariffa", query = "SELECT t FROM TariffeCorriere t WHERE t.nomeTariffa = :nomeTariffa"),
     @NamedQuery(name = "TariffeCorriere.findByPesoMassimo", query = "SELECT t FROM TariffeCorriere t WHERE t.pesoMassimo = :pesoMassimo"),
-    @NamedQuery(name = "TariffeCorriere.findByCosto", query = "SELECT t FROM TariffeCorriere t WHERE t.costo = :costo")})
+    @NamedQuery(name = "TariffeCorriere.findByCosto", query = "SELECT t FROM TariffeCorriere t WHERE t.costo = :costo"),
+    @NamedQuery(name = "TariffeCorriere.findBest", query = "SELECT t FROM TariffeCorriere t WHERE t.pesoMassimo >= :peso order by t.costo")
+
+})
 public class TariffeCorriere implements Serializable {
 
     private static final long serialVersionUID = 1L;

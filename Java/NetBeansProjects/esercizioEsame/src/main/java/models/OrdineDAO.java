@@ -22,6 +22,7 @@ package models;
 
 
 import it.engim.templatedb.PM;
+import java.util.Collection;
 //import it.virtualbit.beans.Ordine;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -73,5 +74,17 @@ public class OrdineDAO
           if (et.isActive()) et.rollback();
           em.close();
       }
-  } 
+  }
+  
+    public static double calcolaPeso(Ordine o, EntityManager em){
+        o = em.find(o.getClass(), o.getId());
+        Collection<Voce> olist = o.getVoceCollection();
+        double pesoTotale = 0;
+        for (Voce v: olist){
+            Articolo a = v.getIdArticoli();
+        pesoTotale += a.getPeso()*
+                        v.getQuantità();
+        }
+        return pesoTotale;
+    }
 } 

@@ -46,7 +46,7 @@ public class PM
 
   private HashMap<String, EntityManagerFactory> emfs;
   
-  private static final String mainUnitName = "root";
+  private static final String mainUnitName = "giuseppe";
     
   public static interface EMapMBean extends Map<String, List<EMWrapper>>
   {
@@ -595,6 +595,6 @@ public class PM
   
   public static EntityManager db()
   {
-    return getInstance().getFactory(mainUnitName).createEntityManager();
+    return getInstance().getFactory("salixweb-unit").createEntityManager();
   }
 }

@@ -18,6 +18,8 @@ package it.engim.templatedb;
 import models.Ordine;
 import models.OrdineDataProvider;
 import java.util.ArrayList;
+import models.TariffeCorriere;
+import models.TariffeCorriereDAO;
 import org.apache.wicket.extensions.markup.html.repeater.data.grid.ICellPopulator;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.AbstractColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.DefaultDataTable;
@@ -45,16 +47,24 @@ public class ElencoOrdini extends WebPage{
         (Model.of("Numero"),"numero"));
         colonne.add(new PropertyColumn<Ordine ,String>
         (Model.of("Data"),"data"));
-        colonne.add(new AbstractColumn<Ordine, String>
-        (Model.of("Tariffa migliore")) 
-        {
+        colonne.add(new AbstractColumn<Ordine,String>
+        (Model.of("Tariffa migliore")) {
             @Override
-            public void populateItem(Item<ICellPopulator<Ordine>> item,
-                    String wicketId,
-                    IModel<Ordine> imodel) 
-            {
-               
-               item.add(new Label(wicketId,item.getId()));
+            public void populateItem(Item<ICellPopulator<Ordine>> item, String wicketId, IModel<Ordine> imodel) {
+                Ordine o = imodel.getObject(); 
+                TariffeCorriere t = TariffeCorriereDAO.calcolaTariffaMigliore(o);
+                item.add(new Label(wicketId, "€"+t.getCosto()));
+                
+            }
+        });
+        colonne.add(new AbstractColumn<Ordine,String>
+        (Model.of("Nome corriere")) {
+            @Override
+            public void populateItem(Item<ICellPopulator<Ordine>> item, String wicketId, IModel<Ordine> imodel) {
+                Ordine o = imodel.getObject(); 
+                TariffeCorriere t = TariffeCorriereDAO.calcolaTariffaMigliore(o);
+                item.add(new Label(wicketId, t.getNomeCorriere()));
+                
             }
         });
         
