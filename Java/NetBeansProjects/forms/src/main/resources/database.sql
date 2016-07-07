@@ -1,0 +1,8 @@
+DROP DATABASE IF EXISTS `forms`;
+CREATE DATABASE `forms` DEFAULT CHARSET=utf8;
+USE `forms`;
+CREATE TABLE `contatti`(
+    `id` INTEGER AUTO_INCREMENT PRIMARY KEY,
+    `email` VARCHAR(255) NOT NULL ,  
+    `richiesta` TEXT NOT NULL 
+)ENGINE=InnoDB;
