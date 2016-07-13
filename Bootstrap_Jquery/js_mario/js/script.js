@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+
 	$(document).keydown(function(e){
 	    switch (e.which){
 	    case 37:    //left arrow key
@@ -6,7 +7,13 @@ $( document ).ready(function() {
 
 	        break;
 	    case 38:    //up arrow key
-	        $(".mario").animate({bottom: "+=25px"},'fast');
+		var img = $("img");
+	    	var position = $("img").position();
+	    	var bottom = $(window).height() - position.top - img.height();
+		if( bottom <=30 ){
+			console.log(position.top+" "+bottom);
+	        	$(".mario").animate({bottom: "+=25px"},'fast');
+		}
 	 
 	        break;
 	    case 39:    //right arrow key
@@ -17,9 +24,9 @@ $( document ).ready(function() {
 	    var img = $("img");
 	    var position = $("img").position();
 	    var bottom = $(window).height() - position.top - img.height();
-	    console.log(position.top+" "+bottom);
+	    //console.log(position.top+" "+bottom);
 	    if(bottom > 0){
-	        $(".mario").animate({bottom: "-=25px"},'fast');
+	       // $(".mario").animate({bottom: "-=25px"},'fast');
 	    }
 	    setTimeout(function(){
     			//do what you need here
@@ -31,7 +38,7 @@ $( document ).ready(function() {
 		var img = $("img");
 	    var position = $("img").position();
 	    var bottom = $(window).height() - position.top - img.height();
-	    console.log(position.top+" "+bottom);
+	    //console.log(position.top+" "+bottom);
 	    if(bottom > 0){
 	    	$(".mario").animate({bottom: "-=25px"},'fast');
 	    }
@@ -41,7 +48,7 @@ $( document ).ready(function() {
 		var img = $("img");
 	    var position = $("img").position();
 	    var bottom = $(window).height() - position.top - img.height();
-	    console.log(position.top+" "+bottom);
+	    //console.log(position.top+" "+bottom);
 	    if(bottom < 0){
 	    	$(".mario").animate({bottom: "+=25px"},'fast');
 	    }
